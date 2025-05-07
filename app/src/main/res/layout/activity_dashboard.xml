@@ -1,108 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Dashboard">
-
+    android:orientation="vertical"
+    >
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="250dp"
         android:scaleType="fitXY"
-        android:src="@drawable/dashboard_thumbnail"
+        android:src="@drawable/dashboard_thumbnail" />
+
+
+    <LinearLayout
+        android:id="@+id/headerText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:background="@drawable/book_board"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/imageView1">
 
-    <ImageButton
-        android:id="@+id/imageButton1"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Islamic Books"
+            android:textSize="35sp" />
+    </LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/headerText">
 
-        android:layout_marginTop="65dp"
-        android:layout_marginEnd="24dp"
-        android:background="@drawable/btn_image"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton3"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton2"
-        app:layout_constraintHorizontal_bias="0.914"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView1"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/_5st_century_vintage_book" />
+        <ImageButton
+            android:id="@+id/imageButton1"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="22dp"
+            android:background="@drawable/btn_image"
+            android:clipToOutline="true"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toTopOf="@+id/imageButton3"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/_5st_century_vintage_book" />
 
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="22dp"
+            android:background="@drawable/btn_image"
+            android:clipToOutline="true"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/imageButton4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/_5st_century_vintage_book" />
 
-        android:layout_marginTop="65dp"
-        android:layout_marginEnd="40dp"
-        android:background="@drawable/btn_image"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView1"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/_5st_century_vintage_book" />
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="150dp"
+            android:layout_marginStart="40dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="28dp"
+            android:layout_marginBottom="22dp"
+            android:background="@drawable/btn_image"
+            android:clipToOutline="true"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/imageButton5"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton4"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/_5st_century_vintage_book" />
 
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/btn_image"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton5"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton4"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/_5st_century_vintage_book" />
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="22dp"
+            android:background="@drawable/btn_image"
+            android:clipToOutline="true"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/imageButton6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/_5st_century_vintage_book" />
 
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
+        <ImageButton
+            android:id="@+id/imageButton5"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="28dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/btn_image"
+            android:clipToOutline="true"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton6"
+            app:layout_constraintHorizontal_bias="0.619"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/_5st_century_vintage_book" />
 
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/btn_image"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/_5st_century_vintage_book" />
+        <ImageButton
+            android:id="@+id/imageButton6"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/btn_image"
+            android:clipToOutline="true"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/_5st_century_vintage_book" />
 
-    <ImageButton
-        android:id="@+id/imageButton5"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="76dp"
-        android:background="@drawable/btn_image"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton6"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/_5st_century_vintage_book" />
-
-    <ImageButton
-        android:id="@+id/imageButton6"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="76dp"
-        android:background="@drawable/btn_image"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/_5st_century_vintage_book" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

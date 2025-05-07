@@ -8,6 +8,8 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.mymobileapp.R;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
