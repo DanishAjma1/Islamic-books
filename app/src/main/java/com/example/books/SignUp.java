@@ -29,12 +29,12 @@ public class SignUp extends AppCompatActivity {
         String Password = password.getText().toString();
         String ConfirmPassword = confirmPassword.getText().toString();
 
-        if (Email == null) {
+        if (Email.isEmpty()) {
             Toast.makeText(SignUp.this, "No email set", Toast.LENGTH_SHORT).show();
             return false;
         }
 
-        if (Password == null && ConfirmPassword == null) {
+        if (Password.isEmpty() && ConfirmPassword.isEmpty()) {
             Toast.makeText(SignUp.this, "No passwords set", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -44,7 +44,7 @@ public class SignUp extends AppCompatActivity {
             return false;
         }
 
-        if (Password != ConfirmPassword) {
+        if (!Password.equals(ConfirmPassword)) {
             Toast.makeText(SignUp.this, password.getText().toString() + " " + confirmPassword.getText().toString(), Toast.LENGTH_SHORT).show();
             return false;
         }

@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        Toast.makeText(this, "Main activity loaded", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Welcome..!", Toast.LENGTH_SHORT).show();
         setContentView(R.layout.activity_main);
         new Handler().postDelayed(new Runnable() {
             @Override

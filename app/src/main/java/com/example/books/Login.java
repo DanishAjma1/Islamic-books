@@ -41,22 +41,22 @@ public class Login extends AppCompatActivity {
 
     private boolean validation() {
         Intent intent = getIntent();
-        if (email == null) {
+        String Email = email.getText().toString();
+        String Password = password.getText().toString();
+        if (Email.isEmpty()) {
             Toast.makeText(Login.this, "No email set", Toast.LENGTH_SHORT).show();
             return false;
         }
 
-        if (password == null) {
+        if (Password.isEmpty()) {
             Toast.makeText(Login.this, "No password set", Toast.LENGTH_SHORT).show();
             return false;
         }
-        String emailString = email.getText().toString();
-        String passwordString = password.getText().toString();
-        if (!emailString.equals(intent.getStringExtra("email"))) {
-            Toast.makeText(Login.this, "Invalid email", Toast.LENGTH_SHORT).show();
+        if (!Email.equals(intent.getStringExtra("email"))) {
+            Toast.makeText(Login.this, Email+" "+intent.getStringExtra("email"), Toast.LENGTH_SHORT).show();
             return false;
         }
-        if (!passwordString.equals(intent.getStringExtra("password"))) {
+        if (!Password.equals(intent.getStringExtra("password"))) {
             Toast.makeText(Login.this, "Invalid password", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -67,6 +67,11 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
+
+        email= findViewById(R.id.emailinput);
+        password = findViewById(R.id.passwordinput);
+        loginButton = findViewById(R.id.loginButton);
+
         navigateToSignUp();
 
         loginButton.setOnClickListener(new View.OnClickListener() {
