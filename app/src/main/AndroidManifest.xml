@@ -13,7 +13,7 @@
         android:theme="@style/Theme.MyMobileApp"
         tools:targetApi="31">
         <activity
-            android:name="com.example.books.AlBidayaWaNahaya"
+            android:name="com.example.books.md_book_reading"
             android:exported="true" />
         <activity
             android:name="com.example.books.Dashboard"
@@ -28,7 +28,7 @@
             android:name="com.example.books.SignUp"
             android:exported="true" />
         <activity
-            android:name="com.example.books.md_book_reading"
+            android:name="com.example.books.AlBidayaWaNahaya"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

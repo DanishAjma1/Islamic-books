@@ -22,7 +22,7 @@
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="16dp"
         android:orientation="vertical"
-        android:background="@drawable/book_board"
+        android:background="@drawable/islamic_books_heading"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView1">
