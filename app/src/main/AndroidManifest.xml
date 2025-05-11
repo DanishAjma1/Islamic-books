@@ -25,10 +25,10 @@
             android:name="com.example.books.Login"
             android:exported="true" />
         <activity
-            android:name="com.example.books.SignUp"
+            android:name="com.example.books.AlBidayaWaNahaya"
             android:exported="true" />
         <activity
-            android:name="com.example.books.AlBidayaWaNahaya"
+            android:name="com.example.books.SignUp"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

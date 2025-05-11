@@ -17,12 +17,16 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mymobileapp.R;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity {
 
     private EditText email;
     private EditText password;
     private Button loginButton;
+    private FirebaseAuth mAuth;
     public void navigateToSignUp() {
         TextView tvSignup = findViewById(R.id.signupText);
         SpannableString ss = new SpannableString("Don't have any account? Sign Up");
@@ -73,18 +77,41 @@ public class Login extends AppCompatActivity {
         loginButton = findViewById(R.id.loginButton);
 
         navigateToSignUp();
+        mAuth = FirebaseAuth.getInstance();
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean validate = validation();
-                if(validate){
-                    Intent i = new Intent(Login.this, Dashboard.class);
-                    startActivity(i);
-                    finish();
+                String Email = email.getText().toString();
+                String Password = password.getText().toString();
+                if (Email.isEmpty() || Password.isEmpty()) {
+                    Toast.makeText(Login.this, "No email set", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    mAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString())
+                            .addOnCompleteListener(Login.this, task -> {
+                                if (task.isSuccessful()) {
+                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    Toast.makeText(Login.this, "Login successful", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(Login.this, Dashboard.class));
+                                    finish();
+                                } else {
+                                    Toast.makeText(Login.this, "Login failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
                 }
             }
         });
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            startActivity(new Intent(Login.this, Dashboard.class));
+            finish();
+        }
     }
 }

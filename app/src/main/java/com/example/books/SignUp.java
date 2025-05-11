@@ -17,6 +17,8 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mymobileapp.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SignUp extends AppCompatActivity {
 
@@ -24,6 +26,8 @@ public class SignUp extends AppCompatActivity {
     private EditText email;
     private EditText password;
     private EditText confirmPassword;
+    private FirebaseAuth mAuth;
+
     public boolean validation() {
         String Email = email.getText().toString();
         String Password = password.getText().toString();
@@ -83,19 +87,34 @@ public class SignUp extends AppCompatActivity {
         password = findViewById(R.id.passwordinput);
         confirmPassword = findViewById(R.id.confirmpassword);
 
+        mAuth = FirebaseAuth.getInstance();
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 boolean validate = validation();
-                if(validate){
-                    Toast.makeText(SignUp.this, "Sign up successful", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(SignUp.this, Login.class);
-                    i.putExtra("email", email.getText().toString());
-                    i.putExtra("password", password.getText().toString());
-                    startActivity(i);
-                    finish();
+                if (validate) {
+                    mAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString())
+                            .addOnCompleteListener(SignUp.this, task -> {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(SignUp.this, "Sign up successful", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(SignUp.this, Login.class));
+                                    finish();
+                                } else {
+                                    Toast.makeText(SignUp.this, "Authentication failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
                 }
             }
         });
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            startActivity(new Intent(SignUp.this, Dashboard.class));
+            finish();
+        }
     }
 }
