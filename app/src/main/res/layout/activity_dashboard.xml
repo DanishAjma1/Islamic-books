@@ -11,6 +11,7 @@
         android:id="@+id/dashboard_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background=""
         android:orientation="vertical"
         >
     <ImageView
@@ -50,7 +51,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:layout_marginBottom="5dp"
         android:id="@+id/books_list_outer"
         >
 
@@ -58,7 +58,7 @@
             android:id="@+id/books_list_inner"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:padding="25dp"
+            android:padding="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -67,7 +67,7 @@
             <ImageButton
                 android:id="@+id/imageButton1"
                 android:layout_width="150dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="10dp"
                 android:layout_height="100dp"
                 android:background="@drawable/btn_image"
                 android:clipToOutline="true"
@@ -81,8 +81,7 @@
                 android:id="@+id/imageButton2"
                 android:layout_width="150dp"
                 android:layout_height="100dp"
-                android:layout_marginBottom="8dp"
-
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/btn_image"
                 android:clipToOutline="true"
                 android:scaleType="centerCrop"
@@ -94,7 +93,7 @@
                 android:id="@+id/imageButton3"
                 android:layout_width="150dp"
                 android:layout_height="100dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/btn_image"
                 android:clipToOutline="true"
                 android:scaleType="centerCrop"
@@ -108,7 +107,7 @@
                 android:id="@+id/imageButton4"
                 android:layout_width="150dp"
                 android:layout_height="100dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/btn_image"
                 android:clipToOutline="true"
                 android:scaleType="centerCrop"
@@ -120,7 +119,7 @@
                 android:id="@+id/imageButton5"
                 android:layout_width="150dp"
                 android:layout_height="100dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/btn_image"
                 android:clipToOutline="true"
                 android:scaleType="centerCrop"
@@ -134,7 +133,7 @@
                 android:id="@+id/imageButton6"
                 android:layout_width="150dp"
                 android:layout_height="100dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/btn_image"
                 android:clipToOutline="true"
                 android:scaleType="centerCrop"
@@ -144,53 +143,111 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="0dp"
-        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/dashboard_icons_bg"
+            android:padding="16dp">
 
-    <ImageButton
-        android:id="@+id/imageButton7"
-        android:layout_width="60dp"
-        android:scaleType="fitCenter"
-        android:layout_margin="5dp"
-        android:background="@drawable/dashboard_icons"
-        android:layout_height="60dp"
-        app:srcCompat="@drawable/user" />
+            <!-- Books -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="16dp"
+                android:gravity="center">
 
-    <ImageButton
-        android:id="@+id/imageButton8"
-        android:layout_width="60dp"
-        android:scaleType="fitCenter"
-        android:layout_margin="5dp"
-        android:background="@drawable/dashboard_icons"
-        android:layout_height="60dp"
-        app:srcCompat="@drawable/user" />
+                <ImageButton
+                    android:id="@+id/imageButton7"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:scaleType="fitCenter"
+                    android:background="@android:color/transparent"
+                    app:srcCompat="@drawable/books" />
 
-        <ImageButton
-        android:id="@+id/imageButton9"
-        android:layout_width="60dp"
-        android:scaleType="fitCenter"
-        android:layout_margin="5dp"
-        android:background="@drawable/dashboard_icons"
-        android:layout_height="60dp"
-        app:srcCompat="@drawable/user" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Books"
+                    android:textSize="15sp"
+                    android:textColor="@color/off_white"/>
+            </LinearLayout>
 
-        <ImageButton
-        android:id="@+id/profileBtn"
-        android:layout_width="60dp"
-        android:scaleType="fitCenter"
-        android:layout_margin="5dp"
-        android:background="@drawable/dashboard_icons"
-        android:layout_height="60dp"
-        app:srcCompat="@drawable/user" />
-    </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
+            <!-- Support -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="16dp"
+                android:gravity="center">
+
+                <ImageButton
+                    android:id="@+id/imageButton8"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:scaleType="fitCenter"
+                    android:background="@android:color/transparent"
+                    app:srcCompat="@drawable/help" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Support"
+                    android:textSize="15sp"
+                    android:textColor="@color/off_white"/>
+            </LinearLayout>
+
+            <!-- Help -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="16dp"
+                android:gravity="center">
+
+                <ImageButton
+                    android:id="@+id/imageButton9"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:scaleType="fitCenter"
+                    android:background="@android:color/transparent"
+                    app:srcCompat="@drawable/report" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Help"
+                    android:textSize="15sp"
+                    android:textColor="@color/off_white"/>
+            </LinearLayout>
+
+            <!-- Me/Profile -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="16dp"
+                android:gravity="center">
+
+                <ImageButton
+                    android:id="@+id/profileBtn"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:scaleType="fitCenter"
+                    android:background="@android:color/transparent"
+                    app:srcCompat="@drawable/user" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Me"
+                    android:textSize="15sp"
+                    android:textColor="@color/off_white"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
         android:id="@+id/profile_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -202,16 +259,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             >
+
             <Button
                 android:id="@+id/backBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:backgroundTint="#7C7C7C"
                 android:text="Back"
                 android:textSize="20sp"
-                android:layout_marginLeft="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/editBtn"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -220,7 +279,6 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:scaleType="fitCenter"
-                android:layout_marginTop="20dp"
                 android:src="@drawable/edit"
                 android:background="@color/white"
                 android:layout_gravity="end"
@@ -232,9 +290,10 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="700dp"
             android:gravity="center"
             android:orientation="vertical"
+            android:layout_marginTop="20dp"
             >
         <ImageView
             android:id="@+id/userImage"
