@@ -11,7 +11,6 @@
         android:id="@+id/dashboard_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background=""
         android:orientation="vertical"
         >
     <ImageView
@@ -50,7 +49,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:id="@+id/books_list_outer"
         >
 
@@ -92,14 +90,13 @@
             <ImageButton
                 android:id="@+id/imageButton3"
                 android:layout_width="150dp"
-                android:layout_height="100dp"
                 android:layout_marginBottom="10dp"
+                android:layout_height="100dp"
                 android:background="@drawable/btn_image"
                 android:clipToOutline="true"
-                android:scaleType="centerCrop"
+                android:scaleType="fitXY"
                 app:layout_constraintBottom_toTopOf="@+id/imageButton5"
-                app:layout_constraintEnd_toStartOf="@+id/imageButton4"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintEnd_toStartOf="@+id/imageButton2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:srcCompat="@drawable/_5st_century_vintage_book" />
 
@@ -156,11 +153,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginHorizontal="16dp"
+                android:layout_marginHorizontal="10dp"
                 android:gravity="center">
 
                 <ImageButton
-                    android:id="@+id/imageButton7"
+                    android:id="@+id/bookIcon"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:scaleType="fitCenter"
@@ -180,11 +177,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginHorizontal="16dp"
+                android:layout_marginHorizontal="10dp"
                 android:gravity="center">
 
                 <ImageButton
-                    android:id="@+id/imageButton8"
+                    android:id="@+id/supportIcon"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:scaleType="fitCenter"
@@ -204,11 +201,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginHorizontal="16dp"
+                android:layout_marginHorizontal="10dp"
                 android:gravity="center">
 
                 <ImageButton
-                    android:id="@+id/imageButton9"
+                    android:id="@+id/helpIcon"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:scaleType="fitCenter"
@@ -228,14 +225,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginHorizontal="16dp"
+                android:layout_marginHorizontal="10dp"
                 android:gravity="center">
 
                 <ImageButton
                     android:id="@+id/profileBtn"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:scaleType="fitCenter"
+                    android:scaleType="fitXY"
                     android:background="@android:color/transparent"
                     app:srcCompat="@drawable/user" />
 
@@ -247,14 +244,17 @@
                     android:textColor="@color/off_white"/>
             </LinearLayout>
         </LinearLayout>
+    </LinearLayout>
         <LinearLayout
         android:id="@+id/profile_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="5dp"
         android:orientation="vertical"
         >
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
