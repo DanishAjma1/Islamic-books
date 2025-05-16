@@ -16,11 +16,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.bumptech.glide.Glide;
 import com.example.mymobileapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -66,6 +68,10 @@ public class Dashboard extends AppCompatActivity {
         editName = dialogView.findViewById(R.id.editName);
         editDescription = dialogView.findViewById(R.id.editDescription);
         profileImage = dialogView.findViewById(R.id.profileImageView);
+
+        editName.setText(username.getText().toString());;
+        editDescription.setText(description.getText().toString());
+        Glide.with(this).load(imageUriString).into(profileImage);
 
         profileImage.setOnClickListener(v -> {
             Intent intent = new Intent();
@@ -114,44 +120,64 @@ public class Dashboard extends AppCompatActivity {
             Log.d("UserID", "No user is signed in.");
         }
     }
-    void storeData(String name,String description,String uri){
+    void storeData(String name, String description, String uri) {
         getCurrentUser();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        Map<String,Object> user = new HashMap<>();
-        user.put("uid",uid);
-        user.put("name",name);
-        user.put("description",description);
-        user.put("imageUri",uri);
 
-        db.collection("users").add(user).addOnCompleteListener(task -> {
-            if(task.isSuccessful()){
-                Toast.makeText(Dashboard.this, "Data inserted", Toast.LENGTH_SHORT).show();
+        Map<String, Object> userData = new HashMap<>();
+        userData.put("uid", uid);
+        userData.put("name", name);
+        userData.put("description", description);
+        userData.put("imageUri", uri);
+
+        DocumentReference userRef = db.collection("users").document(uid);
+
+        userRef.get().addOnSuccessListener(documentSnapshot -> {
+            if (documentSnapshot.exists()) {
+                userRef.set(userData)
+                        .addOnSuccessListener(aVoid -> Toast.makeText(Dashboard.this, "Data updated", Toast.LENGTH_SHORT).show())
+                        .addOnFailureListener(e -> Toast.makeText(Dashboard.this, "Update failed: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+            } else {
+                userRef.set(userData)
+                        .addOnSuccessListener(aVoid -> Toast.makeText(Dashboard.this, "Data inserted", Toast.LENGTH_SHORT).show())
+                        .addOnFailureListener(e -> Toast.makeText(Dashboard.this, "Insert failed: " + e.getMessage(), Toast.LENGTH_SHORT).show());
             }
-            else{
-                Toast.makeText(Dashboard.this, "Error"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-            }
+        }).addOnFailureListener(e -> {
+            Toast.makeText(Dashboard.this, "Error checking user: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         });
     }
-    void readData(){
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        getCurrentUser();
-        db.collection("users").document(uid).get().addOnCompleteListener(documentSnapShot->{
-        if(documentSnapShot.isSuccessful()){
-            username.setText(documentSnapShot.getResult().getString("name"));
-            description.setText(documentSnapShot.getResult().getString("description"));
-            String uri = documentSnapShot.getResult().getString("imageUri");
-            if(uri!=null){
-                imageUriString.setImageURI(Uri.parse(uri));
-            }
-            else{
-                imageUriString.setImageResource(R.drawable.logo);
-            }
+
+    void readData() {
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (firebaseUser == null) {
+            Toast.makeText(Dashboard.this, "User not signed in", Toast.LENGTH_SHORT).show();
+            return;
         }
-    else{
-        Toast.makeText(Dashboard.this, "Error"+documentSnapShot.getException().getMessage(), Toast.LENGTH_SHORT).show();
-    }
+
+        String uid = firebaseUser.getUid();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        db.collection("users").document(uid).get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                if (task.getResult() != null && task.getResult().exists()) {
+                    username.setText(task.getResult().getString("name"));
+                    description.setText(task.getResult().getString("description"));
+
+                    String uri = task.getResult().getString("imageUri");
+                    if (uri != null && !uri.isEmpty()) {
+                        Glide.with(this).load(uri).into(imageUriString);
+                    } else {
+                        imageUriString.setImageResource(R.drawable.logo);
+                    }
+                } else {
+                    Toast.makeText(Dashboard.this, "User data not found", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(Dashboard.this, "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+            }
         });
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -170,6 +196,7 @@ public class Dashboard extends AppCompatActivity {
         description = findViewById(R.id.userDescription);
         imageUriString = findViewById(R.id.userImage);
 
+        readData();
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
