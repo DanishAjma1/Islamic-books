@@ -11,7 +11,7 @@
     <LinearLayout
         android:id="@+id/book_dashboard_layout"
         android:layout_width="match_parent"
-        android:background="@drawable/book_board"
+        android:background="@drawable/books_dashboard"
         android:layout_height="150dp"
         android:orientation="horizontal"
         android:gravity="center">
