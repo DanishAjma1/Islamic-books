@@ -1,7 +1,6 @@
 package com.example.books;
 
 import android.content.Intent;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,20 +11,15 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.bumptech.glide.Glide;
 import com.example.mymobileapp.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
-
 import android.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.widget.TextView;
@@ -47,18 +41,22 @@ public class Dashboard extends AppCompatActivity {
 //    private ImageButton button6= findViewById(R.id.imageButton6);
     private Button logoutBtn;
     private LinearLayout profileLayout;
-    private ImageButton profileBtn;
+    private LinearLayout profileBtn;
+    private LinearLayout supportBtn;
+    private LinearLayout helpBtn;
+    private LinearLayout allBooks;
     private LinearLayout dashboardLayout;
     private Button backBtn;
     private ImageButton editBtn;
     private Button saveBtn;
     private EditText editName;
     private EditText editDescription;
-    ImageView profileImage;
+    private ImageView profileImage;
     private TextView username;
     private TextView description;
     private ImageView imageUriString;
     String uid;
+    String uri;
     private void showProfileInputDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(Dashboard.this);
         LayoutInflater inflater = getLayoutInflater();
@@ -71,7 +69,7 @@ public class Dashboard extends AppCompatActivity {
 
         editName.setText(username.getText().toString());;
         editDescription.setText(description.getText().toString());
-        Glide.with(this).load(imageUriString).into(profileImage);
+        Glide.with(Dashboard.this).load(uri).into(profileImage);
 
         profileImage.setOnClickListener(v -> {
             Intent intent = new Intent();
@@ -88,8 +86,11 @@ public class Dashboard extends AppCompatActivity {
             if (name.isEmpty() || description.isEmpty()) {
                 Toast.makeText(this, "Fields cannot be empty", Toast.LENGTH_SHORT).show();
             } else {
-                storeData(name,description,imageUri.toString());
-                readData();
+                if (image_picked) {
+                    imageUriString.setImageURI(imageUri);
+                    storeData(name, description, imageUri.toString());
+                    readData();
+                }
             }
         });
         builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
@@ -148,13 +149,7 @@ public class Dashboard extends AppCompatActivity {
     }
 
     void readData() {
-        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        if (firebaseUser == null) {
-            Toast.makeText(Dashboard.this, "User not signed in", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        String uid = firebaseUser.getUid();
+        getCurrentUser();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         db.collection("users").document(uid).get().addOnCompleteListener(task -> {
@@ -163,9 +158,9 @@ public class Dashboard extends AppCompatActivity {
                     username.setText(task.getResult().getString("name"));
                     description.setText(task.getResult().getString("description"));
 
-                    String uri = task.getResult().getString("imageUri");
+                    uri = task.getResult().getString("imageUri");
                     if (uri != null && !uri.isEmpty()) {
-                        Glide.with(this).load(uri).into(imageUriString);
+                        Glide.with(Dashboard.this).load(uri).into(imageUriString);
                     } else {
                         imageUriString.setImageResource(R.drawable.logo);
                     }
@@ -188,7 +183,10 @@ public class Dashboard extends AppCompatActivity {
         button1= findViewById(R.id.imageButton1);
         logoutBtn = findViewById(R.id.logoutBtn);
         profileLayout = findViewById(R.id.profile_layout);
-        profileBtn = findViewById(R.id.profileBtn);
+        profileBtn = findViewById(R.id.profileIcon);
+        supportBtn = findViewById(R.id.supportIcon);
+        helpBtn = findViewById(R.id.helpIcon);
+        allBooks = findViewById(R.id.booksIcon);
         dashboardLayout = findViewById(R.id.dashboard_layout);
         backBtn =findViewById(R.id.backBtn);
         editBtn = findViewById(R.id.editBtn);
@@ -222,6 +220,28 @@ public class Dashboard extends AppCompatActivity {
             public void onClick(View view) {
                 dashboardLayout.setVisibility(View.GONE);
                 profileLayout.setVisibility(View.VISIBLE);
+                readData();
+            }
+        });
+        supportBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });
+        helpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dashboardLayout.setVisibility(View.GONE);
+                profileLayout.setVisibility(View.VISIBLE);
+                readData();
+            }
+        });
+        allBooks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dashboardLayout.setVisibility(View.GONE);
+                profileLayout.setVisibility(View.VISIBLE);
+                readData();
             }
         });
         button1.setOnClickListener(new View.OnClickListener() {
