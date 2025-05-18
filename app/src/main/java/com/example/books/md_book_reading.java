@@ -1,5 +1,6 @@
 package com.example.books;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.webkit.WebView;
 
@@ -35,7 +36,8 @@ public class md_book_reading extends AppCompatActivity {
 
     public String convertIntoHtml() {
 
-        String markdownString = loadMarkdownFromAsset("chap1.md");
+        Intent i = getIntent();
+        String markdownString = loadMarkdownFromAsset("chap"+i.getStringExtra("chap_number")+".md");
 
         Parser parser = Parser.builder().build();
         org.commonmark.node.Node document = parser.parse(markdownString);

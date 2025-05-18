@@ -1,5 +1,6 @@
 package com.example.books;
 
+import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -41,10 +42,10 @@ public class Dashboard extends AppCompatActivity {
 //    private ImageButton button6= findViewById(R.id.imageButton6);
     private Button logoutBtn;
     private LinearLayout profileLayout;
-    private LinearLayout profileBtn;
-    private LinearLayout supportBtn;
-    private LinearLayout helpBtn;
-    private LinearLayout allBooks;
+    private ImageButton profileBtn;
+    private ImageButton supportBtn;
+    private ImageButton helpBtn;
+    private ImageButton allBooks;
     private LinearLayout dashboardLayout;
     private Button backBtn;
     private ImageButton editBtn;
@@ -226,22 +227,31 @@ public class Dashboard extends AppCompatActivity {
         supportBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                dashboardLayout.setVisibility(View.GONE);
+                SupportFragment fragment = new SupportFragment();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.supportFragment, fragment);  // THIS ID must match the FrameLayout
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
+
         helpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dashboardLayout.setVisibility(View.GONE);
-                profileLayout.setVisibility(View.VISIBLE);
-                readData();
+                HelpFragment fragment = new HelpFragment();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.helpFragment, fragment);  // THIS ID must match the FrameLayout
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
         allBooks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dashboardLayout.setVisibility(View.GONE);
-                profileLayout.setVisibility(View.VISIBLE);
-                readData();
+                Intent i= new Intent(Dashboard.this,AllBooks.class);
+                startActivity(i);
             }
         });
         button1.setOnClickListener(new View.OnClickListener() {

@@ -21,6 +21,9 @@ public class AlBidayaWaNahaya extends AppCompatActivity {
     private ConstraintLayout fourth;
     private ConstraintLayout fifth;
     private ConstraintLayout sixth;
+    private ConstraintLayout seventh;
+    private ConstraintLayout eighth;
+    private ConstraintLayout ninth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +35,10 @@ public class AlBidayaWaNahaya extends AppCompatActivity {
         third = findViewById(R.id.third_chap);
         fourth = findViewById(R.id.fourth_chap);
         fifth = findViewById(R.id.fifth_chap);
+        sixth = findViewById(R.id.sixth_chap);
+        seventh = findViewById(R.id.seventh_chap);
+        eighth = findViewById(R.id.eighth_chap);
+        ninth = findViewById(R.id.ninth_chap);
 
         first.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +49,70 @@ public class AlBidayaWaNahaya extends AppCompatActivity {
             }
         });
 
+        second.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(AlBidayaWaNahaya.this,md_book_reading.class);
+                i.putExtra("chap_number","2");
+                startActivity(i);
+            }
+        });
+        third.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(AlBidayaWaNahaya.this,md_book_reading.class);
+                i.putExtra("chap_number","3");
+                startActivity(i);
+            }
+        });
+        fourth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(AlBidayaWaNahaya.this,md_book_reading.class);
+                i.putExtra("chap_number","4");
+                startActivity(i);
+            }
+        });
+        fifth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(AlBidayaWaNahaya.this,md_book_reading.class);
+                i.putExtra("chap_number","5");
+                startActivity(i);
+            }
+        });
+        sixth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(AlBidayaWaNahaya.this,md_book_reading.class);
+                i.putExtra("chap_number","6");
+                startActivity(i);
+            }
+        });
+        seventh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(AlBidayaWaNahaya.this,md_book_reading.class);
+                i.putExtra("chap_number","7");
+                startActivity(i);
+            }
+        });
+        eighth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(AlBidayaWaNahaya.this,md_book_reading.class);
+                i.putExtra("chap_number","8");
+                startActivity(i);
+            }
+        });
+        ninth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(AlBidayaWaNahaya.this,md_book_reading.class);
+                i.putExtra("chap_number","9");
+                startActivity(i);
+            }
+        });
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
