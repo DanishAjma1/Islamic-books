@@ -257,7 +257,7 @@ public class Dashboard extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i= new Intent(Dashboard.this,AlBidayaWaNahaya.class);
+                Intent i= new Intent(Dashboard.this, AlBidayaWaNahayaVolume3.class);
                 startActivity(i);
             }
         });

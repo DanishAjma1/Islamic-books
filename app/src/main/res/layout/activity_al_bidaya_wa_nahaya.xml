@@ -6,14 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.books.AlBidayaWaNahaya">
+    tools:context="com.example.books.AlBidayaWaNahayaVolume3">
 
     <LinearLayout
         android:id="@+id/book_dashboard_layout"
         android:layout_width="match_parent"
         android:background="@drawable/books_dashboard"
         android:layout_height="150dp"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:gravity="center">
 
         <TextView
@@ -25,6 +25,16 @@
             android:padding="10dp"
             android:text="@string/albidaya_wan_nahaya"
             android:textSize="35sp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:textColor="#FFFDFC"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Volume 1"
+            android:textSize="25sp" />
     </LinearLayout>
     <ScrollView
         android:layout_width="match_parent"
@@ -50,11 +60,11 @@
                 android:focusable="true"
                 android:padding="12dp">
 
-                <!-- Chapter Number -->
                 <TextView
                     android:id="@+id/chap_Number1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
                     android:text="1."
                     android:textColor="#B0006E"
                     android:textSize="25sp"
@@ -62,11 +72,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.5" />
+                    app:layout_constraintVertical_bias="0.275" />
 
-                <!-- Arabic Name (Right side) -->
-
-                <!-- English Name -->
                 <TextView
                     android:id="@+id/chapEnglishName1"
                     android:layout_width="0dp"

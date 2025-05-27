@@ -37,7 +37,7 @@ public class Login extends AppCompatActivity {
                 startActivity(intent);
             }
         };
-        ss.setSpan(clickableSpan, 25, 31, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // "Sign up" is from index 25 to 32
+        ss.setSpan(clickableSpan, 24, 31, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // "Sign up" is from index 25 to 32
         tvSignup.setText(ss);
         tvSignup.setMovementMethod(LinkMovementMethod.getInstance());
         tvSignup.setHighlightColor(Color.TRANSPARENT);

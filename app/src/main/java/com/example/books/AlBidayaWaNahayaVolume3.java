@@ -13,7 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.mymobileapp.R;
 
-public class AlBidayaWaNahaya extends AppCompatActivity {
+public class AlBidayaWaNahayaVolume3 extends AppCompatActivity {
 
     private ConstraintLayout first;
     private ConstraintLayout second;
@@ -43,7 +43,7 @@ public class AlBidayaWaNahaya extends AppCompatActivity {
         first.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(AlBidayaWaNahaya.this,md_book_reading.class);
+                Intent i = new Intent(AlBidayaWaNahayaVolume3.this,md_book_reading.class);
                 i.putExtra("chap_number","1");
                 startActivity(i);
             }
@@ -52,7 +52,7 @@ public class AlBidayaWaNahaya extends AppCompatActivity {
         second.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(AlBidayaWaNahaya.this,md_book_reading.class);
+                Intent i = new Intent(AlBidayaWaNahayaVolume3.this,md_book_reading.class);
                 i.putExtra("chap_number","2");
                 startActivity(i);
             }
@@ -60,7 +60,7 @@ public class AlBidayaWaNahaya extends AppCompatActivity {
         third.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(AlBidayaWaNahaya.this,md_book_reading.class);
+                Intent i = new Intent(AlBidayaWaNahayaVolume3.this,md_book_reading.class);
                 i.putExtra("chap_number","3");
                 startActivity(i);
             }
@@ -68,7 +68,7 @@ public class AlBidayaWaNahaya extends AppCompatActivity {
         fourth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(AlBidayaWaNahaya.this,md_book_reading.class);
+                Intent i = new Intent(AlBidayaWaNahayaVolume3.this,md_book_reading.class);
                 i.putExtra("chap_number","4");
                 startActivity(i);
             }
@@ -76,7 +76,7 @@ public class AlBidayaWaNahaya extends AppCompatActivity {
         fifth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(AlBidayaWaNahaya.this,md_book_reading.class);
+                Intent i = new Intent(AlBidayaWaNahayaVolume3.this,md_book_reading.class);
                 i.putExtra("chap_number","5");
                 startActivity(i);
             }
@@ -84,7 +84,7 @@ public class AlBidayaWaNahaya extends AppCompatActivity {
         sixth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(AlBidayaWaNahaya.this,md_book_reading.class);
+                Intent i = new Intent(AlBidayaWaNahayaVolume3.this,md_book_reading.class);
                 i.putExtra("chap_number","6");
                 startActivity(i);
             }
@@ -92,7 +92,7 @@ public class AlBidayaWaNahaya extends AppCompatActivity {
         seventh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(AlBidayaWaNahaya.this,md_book_reading.class);
+                Intent i = new Intent(AlBidayaWaNahayaVolume3.this,md_book_reading.class);
                 i.putExtra("chap_number","7");
                 startActivity(i);
             }
@@ -100,7 +100,7 @@ public class AlBidayaWaNahaya extends AppCompatActivity {
         eighth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(AlBidayaWaNahaya.this,md_book_reading.class);
+                Intent i = new Intent(AlBidayaWaNahayaVolume3.this,md_book_reading.class);
                 i.putExtra("chap_number","8");
                 startActivity(i);
             }
@@ -108,7 +108,7 @@ public class AlBidayaWaNahaya extends AppCompatActivity {
         ninth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(AlBidayaWaNahaya.this,md_book_reading.class);
+                Intent i = new Intent(AlBidayaWaNahayaVolume3.this,md_book_reading.class);
                 i.putExtra("chap_number","9");
                 startActivity(i);
             }

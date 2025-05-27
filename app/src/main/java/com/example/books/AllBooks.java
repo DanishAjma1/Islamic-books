@@ -1,22 +1,11 @@
 package com.example.books;
 
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
 import android.widget.Toast;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.mymobileapp.R;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,9 +25,12 @@ public class AllBooks extends AppCompatActivity implements OnBookClickListener {
 
         bookList = new ArrayList<>();
         // Example books
-        bookList.add(new Book("Al-Bidaya Wan-Nihaya", "Ibn Kathir", R.drawable._5st_century_vintage_book));
-        bookList.add(new Book("Tafsir Ibn Kathir", "Ibn Kathir", R.drawable._5st_century_vintage_book));
-        bookList.add(new Book("Riyadh-us-Saliheen", "Imam Nawawi", R.drawable._5st_century_vintage_book));
+        bookList.add(new Book("Al-Bidaya Wan-Nihaya Volume 1 ", "Ibn Kathir", R.drawable._5st_century_vintage_book));
+        bookList.add(new Book("Al-Bidaya Wan-Nihaya Volume 2", "Ibn Kathir", R.drawable._5st_century_vintage_book));
+        bookList.add(new Book("Al-Bidaya Wan-Nihaya Volume 3", "Imam Nawawi", R.drawable._5st_century_vintage_book));
+        bookList.add(new Book("Al-Bidaya Wan-Nihaya Volume 4", "Imam Nawawi", R.drawable._5st_century_vintage_book));
+        bookList.add(new Book("Al-Bidaya Wan-Nihaya Volume 5", "Imam Nawawi", R.drawable._5st_century_vintage_book));
+        bookList.add(new Book("Al-Bidaya Wan-Nihaya Volume 6", "Imam Nawawi", R.drawable._5st_century_vintage_book));
 
         adapter = new BookAdapter(this, bookList, this);
         recyclerView.setAdapter(adapter);
@@ -46,6 +38,35 @@ public class AllBooks extends AppCompatActivity implements OnBookClickListener {
     }
     @Override
     public void onBookClick(Book book) {
-        Toast.makeText(this, "Clicked: " + book.getTitle(), Toast.LENGTH_SHORT).show();
+        String title = book.getTitle();
+
+        if (title.equals("Al-Bidaya Wan-Nihaya Volume 1")) {
+            // Do something specific for this book
+            Toast.makeText(this, "Opening Al-Bidaya Wan-Nihaya Volume 1", Toast.LENGTH_SHORT).show();
+            // startActivity(new Intent(this, AlBidayaActivity.class));
+
+        } else if (title.equals("Al-Bidaya Wan-Nihaya Volume 2")) {
+            // Do something for Tafsir Ibn Kathir
+            Toast.makeText(this, "Opening Al-Bidaya Wan-Nihaya Volume 2", Toast.LENGTH_SHORT).show();
+            // startActivity(new Intent(this, TafsirIbnKathirActivity.class));
+
+        } else if (title.equals("Al-Bidaya Wan-Nihaya Volume 3")) {
+            // Do something for Riyadh-us-Saliheen
+            Toast.makeText(this, "Opening Al-Bidaya Wan-Nihaya Volume 3", Toast.LENGTH_SHORT).show();
+            // startActivity(new Intent(this, RiyadhUsSaliheenActivity.class));
+        } else if (title.equals("Al-Bidaya Wan-Nihaya Volume 4")) {
+            // Do something for Riyadh-us-Saliheen
+            Toast.makeText(this, "Opening Al-Bidaya Wan-Nihaya Volume 4", Toast.LENGTH_SHORT).show();
+            // startActivity(new Intent(this, RiyadhUsSaliheenActivity.class));
+        } else if (title.equals("Al-Bidaya Wan-Nihaya Volume 5")) {
+            // Do something for Riyadh-us-Saliheen
+            Toast.makeText(this, "Opening Al-Bidaya Wan-Nihaya Volume 5", Toast.LENGTH_SHORT).show();
+            // startActivity(new Intent(this, RiyadhUsSaliheenActivity.class));
+        } else if (title.equals("Al-Bidaya Wan-Nihaya Volume 6")) {
+            // Do something for Riyadh-us-Saliheen
+            Toast.makeText(this, "Opening Al-Bidaya Wan-Nihaya Volume 6", Toast.LENGTH_SHORT).show();
+            // startActivity(new Intent(this, RiyadhUsSaliheenActivity.class));
+        }
     }
+
 }

@@ -1,6 +1,7 @@
 package com.example.books;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,8 +55,11 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         holder.bookTitle.setText(book.getTitle());
         holder.bookAuthor.setText(book.getAuthor());
         holder.bookIcon.setImageResource(book.getIconResId());
+        holder.bookIcon.setClipToOutline(true);
+        holder.bookIcon.setBackground(context.getResources().getDrawable(R.drawable.btn_image));
+        holder.bookTitle.setTextColor(context.getResources().getColor(R.color.black));
+        holder.bookAuthor.setTextColor(context.getResources().getColor(R.color.black));
 
-        // Call bind to attach listener
         holder.bind(book, listener);
     }
 
