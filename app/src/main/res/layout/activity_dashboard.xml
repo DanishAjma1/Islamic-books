@@ -74,7 +74,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/imageButton3"
                 app:layout_constraintEnd_toStartOf="@+id/imageButton2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/_5st_century_vintage_book" />
+                app:srcCompat="@drawable/book_image" />
 
             <ImageButton
                 android:id="@+id/imageButton2"
@@ -83,10 +83,11 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/btn_image"
                 android:clipToOutline="true"
+                android:foreground="#80000000"
                 android:scaleType="centerCrop"
                 app:layout_constraintBottom_toTopOf="@+id/imageButton4"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@drawable/_5st_century_vintage_book" />
+                app:srcCompat="@drawable/safwatafseer" />
 
             <ImageButton
                 android:id="@+id/imageButton3"
@@ -96,10 +97,11 @@
                 android:background="@drawable/btn_image"
                 android:clipToOutline="true"
                 android:scaleType="fitXY"
+                android:foreground="#80000000"
                 app:layout_constraintBottom_toTopOf="@+id/imageButton5"
                 app:layout_constraintEnd_toStartOf="@+id/imageButton2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/_5st_century_vintage_book" />
+                app:srcCompat="@drawable/tafseer_attari" />
 
             <ImageButton
                 android:id="@+id/imageButton4"
@@ -108,10 +110,11 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/btn_image"
                 android:clipToOutline="true"
+                android:foreground="#80000000"
                 android:scaleType="centerCrop"
                 app:layout_constraintBottom_toTopOf="@+id/imageButton6"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@drawable/_5st_century_vintage_book" />
+                app:srcCompat="@drawable/sahihmuslim" />
 
             <ImageButton
                 android:id="@+id/imageButton5"
@@ -123,9 +126,10 @@
                 android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/imageButton6"
+                android:foreground="#80000000"
                 app:layout_constraintHorizontal_bias="0.619"
                 app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/_5st_century_vintage_book" />
+                app:srcCompat="@drawable/firstfiq" />
 
             <ImageButton
                 android:id="@+id/imageButton6"
@@ -133,11 +137,13 @@
                 android:layout_height="100dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/btn_image"
+                android:foreground="#80000000"
                 android:clipToOutline="true"
                 android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@drawable/_5st_century_vintage_book" />
+                app:srcCompat="@drawable/al_bidaya_wanhaya_book" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

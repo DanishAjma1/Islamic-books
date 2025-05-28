@@ -1,5 +1,6 @@
 package com.example.books;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,49 +25,43 @@ public class AllBooks extends AppCompatActivity implements OnBookClickListener {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         bookList = new ArrayList<>();
-        // Example books
-        bookList.add(new Book("Al-Bidaya Wan-Nihaya Volume 1 ", "Ibn Kathir", R.drawable._5st_century_vintage_book));
-        bookList.add(new Book("Al-Bidaya Wan-Nihaya Volume 2", "Ibn Kathir", R.drawable._5st_century_vintage_book));
-        bookList.add(new Book("Al-Bidaya Wan-Nihaya Volume 3", "Imam Nawawi", R.drawable._5st_century_vintage_book));
-        bookList.add(new Book("Al-Bidaya Wan-Nihaya Volume 4", "Imam Nawawi", R.drawable._5st_century_vintage_book));
-        bookList.add(new Book("Al-Bidaya Wan-Nihaya Volume 5", "Imam Nawawi", R.drawable._5st_century_vintage_book));
-        bookList.add(new Book("Al-Bidaya Wan-Nihaya Volume 6", "Imam Nawawi", R.drawable._5st_century_vintage_book));
+        bookList.add(new Book("Al-Bidaya Wan-Nihaya :Volume 1", "Ibn Kathir", R.drawable.albidaya));
+        bookList.add(new Book("Al-Bidaya Wan-Nihaya :Volume 2", "Ibn Kathir", R.drawable.albidaya));
+        bookList.add(new Book("Al-Bidaya Wan-Nihaya :Volume 3", "Ibn Kathir", R.drawable.albidaya));
+        bookList.add(new Book("Al-Bidaya Wan-Nihaya :Volume 4", "Ibn Kathir", R.drawable.albidaya));
+        bookList.add(new Book("Al-Bidaya Wan-Nihaya :Volume 5", "Ibn Kathir", R.drawable.albidaya));
+        bookList.add(new Book("Al-Bidaya Wan-Nihaya :Volume 6", "Ibn Kathir", R.drawable.albidaya));
 
         adapter = new BookAdapter(this, bookList, this);
         recyclerView.setAdapter(adapter);
-
     }
     @Override
     public void onBookClick(Book book) {
         String title = book.getTitle();
 
-        if (title.equals("Al-Bidaya Wan-Nihaya Volume 1")) {
-            // Do something specific for this book
+        if (title.equals("Al-Bidaya Wan-Nihaya :Volume 1")) {
             Toast.makeText(this, "Opening Al-Bidaya Wan-Nihaya Volume 1", Toast.LENGTH_SHORT).show();
-            // startActivity(new Intent(this, AlBidayaActivity.class));
+             startActivity(new Intent(this, AlBidayaWaNahayaVolume1.class));
 
-        } else if (title.equals("Al-Bidaya Wan-Nihaya Volume 2")) {
-            // Do something for Tafsir Ibn Kathir
+        } else if (title.equals("Al-Bidaya Wan-Nihaya :Volume 2")) {
             Toast.makeText(this, "Opening Al-Bidaya Wan-Nihaya Volume 2", Toast.LENGTH_SHORT).show();
-            // startActivity(new Intent(this, TafsirIbnKathirActivity.class));
+             startActivity(new Intent(this, AlBidayaWaNahayaVolume2.class));
 
-        } else if (title.equals("Al-Bidaya Wan-Nihaya Volume 3")) {
-            // Do something for Riyadh-us-Saliheen
+        } else if (title.equals("Al-Bidaya Wan-Nihaya :Volume 3")) {
             Toast.makeText(this, "Opening Al-Bidaya Wan-Nihaya Volume 3", Toast.LENGTH_SHORT).show();
-            // startActivity(new Intent(this, RiyadhUsSaliheenActivity.class));
-        } else if (title.equals("Al-Bidaya Wan-Nihaya Volume 4")) {
-            // Do something for Riyadh-us-Saliheen
+             startActivity(new Intent(this, AlBidayaWaNahayaVolume3.class));
+
+        } else if (title.equals("Al-Bidaya Wan-Nihaya :Volume 4")) {
             Toast.makeText(this, "Opening Al-Bidaya Wan-Nihaya Volume 4", Toast.LENGTH_SHORT).show();
-            // startActivity(new Intent(this, RiyadhUsSaliheenActivity.class));
-        } else if (title.equals("Al-Bidaya Wan-Nihaya Volume 5")) {
-            // Do something for Riyadh-us-Saliheen
+             startActivity(new Intent(this, AlBidayaWaNahayaVolume4.class));
+
+        } else if (title.equals("Al-Bidaya Wan-Nihaya :Volume 5")) {
             Toast.makeText(this, "Opening Al-Bidaya Wan-Nihaya Volume 5", Toast.LENGTH_SHORT).show();
-            // startActivity(new Intent(this, RiyadhUsSaliheenActivity.class));
-        } else if (title.equals("Al-Bidaya Wan-Nihaya Volume 6")) {
-            // Do something for Riyadh-us-Saliheen
+             startActivity(new Intent(this, AlBidayaWaNahayaVolume5.class));
+
+        } else if (title.equals("Al-Bidaya Wan-Nihaya :Volume 6")) {
             Toast.makeText(this, "Opening Al-Bidaya Wan-Nihaya Volume 6", Toast.LENGTH_SHORT).show();
-            // startActivity(new Intent(this, RiyadhUsSaliheenActivity.class));
+             startActivity(new Intent(this, AlBidayaWaNahayaVolume6.class));
         }
     }
-
 }

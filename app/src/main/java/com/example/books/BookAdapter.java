@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -53,10 +54,18 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
     public void onBindViewHolder(BookViewHolder holder, int position) {
         Book book = bookList.get(position);
         holder.bookTitle.setText(book.getTitle());
+        holder.bookTitle.setTextSize(18);
         holder.bookAuthor.setText(book.getAuthor());
+
+        ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) holder.bookIcon.getLayoutParams();
+        params.leftMargin = (int) (16 * context.getResources().getDisplayMetrics().density);
+
+        holder.bookIcon.setLayoutParams(params);
+        holder.bookIcon.setScaleType(ImageButton.ScaleType.FIT_XY);
         holder.bookIcon.setImageResource(book.getIconResId());
-        holder.bookIcon.setClipToOutline(true);
         holder.bookIcon.setBackground(context.getResources().getDrawable(R.drawable.btn_image));
+        holder.bookIcon.setClipToOutline(true);
+
         holder.bookTitle.setTextColor(context.getResources().getColor(R.color.black));
         holder.bookAuthor.setTextColor(context.getResources().getColor(R.color.black));
 

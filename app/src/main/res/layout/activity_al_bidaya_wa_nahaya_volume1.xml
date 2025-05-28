@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:orientation="vertical"
-        android:gravity="center">
+        >
 
         <TextView
             android:id="@+id/textView2"
@@ -31,10 +31,11 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:textColor="#FFFDFC"
-            android:gravity="center"
+            android:gravity="end"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Volume 1"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:text="* Volume 1"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -49,36 +50,24 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="vertical">
-
-            <!-- Chapter 1 -->
             <include layout="@layout/chapter_template"
                 android:id="@+id/first_chap"
-                android:tag="1|The Beginning of the Prophet’s Mission|An account of the initial revelations and the Prophet's call to Islam." />
-
-            <!-- Chapter 2 -->
+                 />
             <include layout="@layout/chapter_template"
                 android:id="@+id/second_chap"
-                android:tag="2|Persecution in Mecca|Details the hardships faced by early Muslims and the Prophet's steadfastness." />
-
-            <!-- Chapter 3 -->
+                 />
             <include layout="@layout/chapter_template"
                 android:id="@+id/third_chap"
-                android:tag="3|The Migration to Medina (Hijrah)|Chronicles the pivotal journey from Mecca to Medina, marking a new chapter in Islamic history." />
-
-            <!-- Chapter 4 -->
+                 />
             <include layout="@layout/chapter_template"
                 android:id="@+id/fourth_chap"
-                android:tag="4|The Battle of Badr|Describes the first major battle between Muslims and Quraysh, highlighting its significance." />
-
-            <!-- Chapter 5 -->
+                 />
             <include layout="@layout/chapter_template"
                 android:id="@+id/fifth_chap"
-                android:tag="5|The Battle of Uhud|Covers the events, outcomes, and lessons from this critical encounter." />
-
-            <!-- Chapter 6 -->
+                 />
             <include layout="@layout/chapter_template"
                 android:id="@+id/sixth_chap"
-                android:tag="6|The Treaty of Hudaybiyyah|Discusses the strategic peace treaty and its long-term implications for the Muslim community." />
+                 />
 
         </LinearLayout>
     </ScrollView>

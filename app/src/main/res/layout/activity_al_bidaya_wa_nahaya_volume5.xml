@@ -1,10 +1,87 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.books.AlBidayaWaNahayaVolume5">
+    android:orientation="vertical"
+    tools:context="com.example.books.AlBidayaWaNahayaVolume1">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/book_dashboard_layout"
+        android:layout_width="match_parent"
+        android:background="@drawable/books_dashboard"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:textColor="#FFFDFC"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/albidaya_wan_nahaya"
+            android:textSize="35sp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:textColor="#FFFDFC"
+            android:gravity="end"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:text="* Volume 5"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:verticalScrollbarPosition="right"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/Chapters"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+            <include layout="@layout/chapter_template"
+                android:id="@+id/first_chap"
+                />
+            <include layout="@layout/chapter_template"
+                android:id="@+id/second_chap"
+                />
+            <include layout="@layout/chapter_template"
+                android:id="@+id/third_chap"
+                />
+            <include layout="@layout/chapter_template"
+                android:id="@+id/fourth_chap"
+                />
+            <include layout="@layout/chapter_template"
+                android:id="@+id/fifth_chap"
+                />
+            <include layout="@layout/chapter_template"
+                android:id="@+id/sixth_chap"
+                />
+
+            <include layout="@layout/chapter_template"
+                android:id="@+id/seventh_chap"
+                />
+            <include layout="@layout/chapter_template"
+                android:id="@+id/eighth_chap"
+                />
+            <include layout="@layout/chapter_template"
+                android:id="@+id/ninth_chap"
+                />
+            <include layout="@layout/chapter_template"
+                android:id="@+id/tenth_chap"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -19,7 +19,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/_5st_century_vintage_book"
+            android:src="@drawable/al_bidaya_wanhaya_book"
             android:contentDescription="Book Icon"
             android:scaleType="centerInside" />
 

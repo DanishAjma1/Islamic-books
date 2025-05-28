@@ -35,11 +35,11 @@ public class Dashboard extends AppCompatActivity {
     private boolean image_picked;
     private Uri imageUri;
     private ImageButton button1;
-//    private ImageButton button2= findViewById(R.id.imageButton2);
-//    private ImageButton button3= findViewById(R.id.imageButton3);
-//    private ImageButton button4= findViewById(R.id.imageButton4);
-//    private ImageButton button5= findViewById(R.id.imageButton5);
-//    private ImageButton button6= findViewById(R.id.imageButton6);
+    private ImageButton button2;
+    private ImageButton button3;
+    private ImageButton button4;
+    private ImageButton button5;
+    private ImageButton button6;
     private Button logoutBtn;
     private LinearLayout profileLayout;
     private ImageButton profileBtn;
@@ -91,6 +91,9 @@ public class Dashboard extends AppCompatActivity {
                     imageUriString.setImageURI(imageUri);
                     storeData(name, description, imageUri.toString());
                     readData();
+                }else{
+                    storeData(name, description,"");
+                    readData();
                 }
             }
         });
@@ -130,7 +133,9 @@ public class Dashboard extends AppCompatActivity {
         userData.put("uid", uid);
         userData.put("name", name);
         userData.put("description", description);
-        userData.put("imageUri", uri);
+        if(!uri.equals(null)) {
+            userData.put("imageUri", uri);
+        }
 
         DocumentReference userRef = db.collection("users").document(uid);
 
@@ -182,6 +187,12 @@ public class Dashboard extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
 
         button1= findViewById(R.id.imageButton1);
+        button2= findViewById(R.id.imageButton2);
+        button3= findViewById(R.id.imageButton3);
+        button4= findViewById(R.id.imageButton4);
+        button5= findViewById(R.id.imageButton5);
+        button6= findViewById(R.id.imageButton6);
+
         logoutBtn = findViewById(R.id.logoutBtn);
         profileLayout = findViewById(R.id.profile_layout);
         profileBtn = findViewById(R.id.profileIcon);
@@ -257,8 +268,48 @@ public class Dashboard extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i= new Intent(Dashboard.this, AlBidayaWaNahayaVolume3.class);
+                Intent i= new Intent(Dashboard.this, AlBidayaWaNahayaVolume1.class);
                 startActivity(i);
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Intent i= new Intent(Dashboard.this, AlBidayaWaNahayaVolume2.class);
+//                startActivity(i);
+                Toast.makeText(Dashboard.this, "Coming Soon", Toast.LENGTH_SHORT).show();
+            }
+        });
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Intent i= new Intent(Dashboard.this, AlBidayaWaNahayaVolume3.class);
+//                startActivity(i);
+                Toast.makeText(Dashboard.this, "Coming Soon", Toast.LENGTH_SHORT).show();
+            }
+        });
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Intent i= new Intent(Dashboard.this, AlBidayaWaNahayaVolume4.class);
+//                startActivity(i);
+                Toast.makeText(Dashboard.this, "Coming Soon", Toast.LENGTH_SHORT).show();
+            }
+        });
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Intent i= new Intent(Dashboard.this, AlBidayaWaNahayaVolume5.class);
+//                startActivity(i);
+                Toast.makeText(Dashboard.this, "Coming Soon", Toast.LENGTH_SHORT).show();
+            }
+        });
+        button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Intent i= new Intent(Dashboard.this, AlBidayaWaNahayaVolume6.class);
+//                startActivity(i);
+                Toast.makeText(Dashboard.this, "Coming Soon", Toast.LENGTH_SHORT).show();
             }
         });
     }
