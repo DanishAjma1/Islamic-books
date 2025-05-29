@@ -27,6 +27,7 @@ public class SignUp extends AppCompatActivity {
     private EditText password;
     private EditText confirmPassword;
     private FirebaseAuth mAuth;
+    private Button phoneButton;
 
     public boolean validation() {
         String Email = email.getText().toString();
@@ -86,6 +87,15 @@ public class SignUp extends AppCompatActivity {
         email = findViewById(R.id.emailinput);
         password = findViewById(R.id.passwordinput);
         confirmPassword = findViewById(R.id.confirmpassword);
+
+        phoneButton = findViewById(R.id.phoneButton);
+        phoneButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(SignUp.this, phoneNumberAuth.class);
+                startActivity(i);
+            }
+        });
 
         mAuth = FirebaseAuth.getInstance();
         signUpButton.setOnClickListener(new View.OnClickListener() {

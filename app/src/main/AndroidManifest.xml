@@ -15,6 +15,9 @@
         android:theme="@style/Theme.MyMobileApp"
         tools:targetApi="31">
         <activity
+            android:name="com.example.books.phoneNumberAuth"
+            android:exported="true" />
+        <activity
             android:name="com.example.books.AlBidayaWaNahayaVolume6"
             android:exported="true" />
         <activity
